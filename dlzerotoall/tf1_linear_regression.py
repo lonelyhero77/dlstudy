@@ -37,6 +37,7 @@ sess.run(tf.global_variables_initializer())
 for step in range(2001):
     # sess.run(train)
     # train을 세션에서 실행할 때 리턴되는 value는 _에 저장
+    # a, b, c, d = [1, 2, 3, 4] -> a: 1 , b:2 and so on...
     cost_val, W_val, b_val, _ = sess.run([cost, W, b, train], feed_dict={X: [1, 2, 3, 4, 5], Y: [2.1, 3.1, 4.1, 5.1, 6.1]})
     if step % 20 == 0:
         print(step, cost_val, W_val, b_val)
