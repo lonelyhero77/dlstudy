@@ -49,14 +49,11 @@ for step in range(21):
     print(step, sess.run([gradient, gvs], feed_dict={X: x_data, Y: y_data}), sess.run(W))
     sess.run(apply_gradients, feed_dict={X: x_data, Y: y_data})
     # sess.run(train, feed_dict={X: x_data, Y: y_data})
-    
-
 # W_val = []
 # cost_val = []
-# 
 # for i in range(-30, 50):
 #     feed_W = i * 0.1
-#     curr_cost, curr_W = sess.run([cost, W], feed_dict={W: feed_W})
+#     curr_cost, curr_W = sess.run([cost, W], feed_dict={W: [feed_W], X: x_data, Y: y_data})
 #     W_val.append(curr_W)
 #     cost_val.append(curr_cost)
 
