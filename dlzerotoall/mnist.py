@@ -15,7 +15,7 @@ Y = tf.placeholder(tf.float32, [None, nb_classes])
 # hypothesis = tf.nn.softmax(tf.matmul(X, W) + b)
 
 # Neural Network
-
+# Why using sigmoid and softmax function at once makes better learning?
 W1 = tf.Variable(tf.random_normal([784, 1000]))
 b1 = tf.Variable(tf.random_normal([1000]))
 # layer1 = tf.sigmoid(tf.matmul(X, W1) + b1)
@@ -32,9 +32,7 @@ hypothesis = tf.nn.softmax(tf.matmul(layer2, W3) + b3)
 
 cost = tf.reduce_mean(-tf.reduce_sum(Y * tf.log(hypothesis), axis=1))
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.1).minimize(cost)
-
 is_correct = tf.equal(tf.argmax(hypothesis, 1), tf.argmax(Y, 1))
-
 accuracy = tf.reduce_mean(tf.cast(is_correct, tf.float32))
 
 
