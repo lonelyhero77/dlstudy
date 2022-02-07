@@ -60,8 +60,7 @@ accuracy = tf.reduce_mean(tf.cast(tf.equal(predicted, Y), dtype=tf.float32))
 
 with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
-    W_val = sess.run(W1)
-
+    W_val = sess.run([W1, W2, W3, W4, W5])
     for step in range(10001):
         sess.run(train, feed_dict={X: x_data, Y: y_data})
         if step % 100 == 0:
