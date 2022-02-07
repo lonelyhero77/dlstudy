@@ -21,12 +21,12 @@ b1 = tf.Variable(tf.random_normal([1000]))
 # layer1 = tf.sigmoid(tf.matmul(X, W1) + b1)
 layer1 = tf.nn.softmax(tf.matmul(X, W1) + b1)
 
-W2 = tf.Variable(tf.random_normal([1000, 1000]))
-b2 = tf.Variable(tf.random_normal([1000]))
+W2 = tf.Variable(tf.random_normal([1000, 4]))
+b2 = tf.Variable(tf.random_normal([4]))
 layer2 = tf.sigmoid(tf.matmul(layer1, W2) + b2)
 # layer2 = tf.nn.softmax(tf.matmul(layer1, W2) + b2)
 
-W3 = tf.Variable(tf.random_normal([1000, nb_classes]))
+W3 = tf.Variable(tf.random_normal([4, nb_classes]))
 b3 = tf.Variable(tf.random_normal([nb_classes]))
 hypothesis = tf.nn.softmax(tf.matmul(layer2, W3) + b3)
 
